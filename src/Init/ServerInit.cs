@@ -38,7 +38,7 @@ namespace NihongoHub.Init{
 
             //监听端口配置
             static void ConfigureKestrel(KestrelServerOptions options) {
-                var server = NihongoHub.Init.ConfigInit.Current == null ? null : NihongoHub.Init.ConfigInit.Current.Server;
+                var server = NihongoHub.Init.ConfigInit.Current.Server;
                 
                 if(server == null)
                 {
