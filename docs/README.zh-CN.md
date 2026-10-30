@@ -39,8 +39,9 @@ NihongoHub 是一个专注于日语词汇管理与练习的日语学习平台。
 dotnet build src
 ```
 
-项目仍处于积极开发阶段，当前不建议用于生产环境。
+项目仍处于积极开发阶段，当前不应用于生产环境。
 
-## 开发约定
+## 许可证
 
-项目目录结构、分层职责、命名、数据库访问、JWT 和错误处理约定见[开发约定文档](DEVELOPMENT_CONVENTIONS.md)。
+
+本项目采用 MIT License。详情请参阅 [LICENSE](../LICENSE)。

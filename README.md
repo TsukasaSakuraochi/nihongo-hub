@@ -41,8 +41,6 @@ Requires the .NET 10 SDK.
 dotnet build src
 ```
 
-See [Development Conventions (Chinese)](docs/DEVELOPMENT_CONVENTIONS.md) for the current project structure, layering rules, naming, and implementation agreements.
-
 The project is under active development and is not intended for production use.
 
 ## License

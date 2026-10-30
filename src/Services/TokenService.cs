@@ -53,7 +53,6 @@ namespace NihongoHub.Services
                 expires: expiresAt,
                 signingCredentials: signingCredentials
             );
-            //MapInboundClaims 为false时 关闭Claim 类型映射
             token = new JwtSecurityTokenHandler().WriteToken(jwt);
             return;
         }
