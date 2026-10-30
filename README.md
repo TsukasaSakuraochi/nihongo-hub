@@ -31,7 +31,7 @@ These features describe the intended scope of the project; they are not all impl
 ## Repository Structure
 
 - `src/` — Backend source code
-- `web/` — Frontend source code
+- `web/` — Frontend source code (planned; not yet present in the repository)
 
 ## Development
 
@@ -40,6 +40,8 @@ Requires the .NET 10 SDK.
 ```bash
 dotnet build src
 ```
+
+See [Development Conventions (Chinese)](docs/DEVELOPMENT_CONVENTIONS.md) for the current project structure, layering rules, naming, and implementation agreements.
 
 The project is under active development and is not intended for production use.
 
