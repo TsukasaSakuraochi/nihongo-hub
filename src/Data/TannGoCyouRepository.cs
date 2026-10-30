@@ -4,9 +4,9 @@ namespace NihongoHub.Data
 {
     public static class TannGoCyouRepository
     {
-        public static Models.Entities.TannGoCyou? FindWordListById(int ids)
+        public static Models.Entities.TannGoCyou? FindWordListById(int id)
         {
-            return Init.DatabaseInit.Current.TannGoCyou.FindById(ids);
+            return Init.DatabaseInit.Current.TannGoCyou.FindById(id);
         }
         public static List<Models.Entities.TannGoCyou> FindWordListsByUserId(int userId)
         {

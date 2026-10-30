@@ -43,4 +43,4 @@ dotnet build src
 
 ## 许可证
 
-本项目采用 MIT License。详情请参阅 [LICENSE](LICENSE)。
+本项目采用 MIT License。详情请参阅 [LICENSE](../LICENSE)。

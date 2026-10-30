@@ -43,4 +43,4 @@ dotnet build src
 
 ## ライセンス
 
-本プロジェクトは MIT License のもとで公開されています。詳細は [LICENSE](LICENSE) を参照してください。
+本プロジェクトは MIT License のもとで公開されています。詳細は [LICENSE](../LICENSE) を参照してください。
