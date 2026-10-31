@@ -4,7 +4,7 @@
 >
 > 项目目前处于早期开发阶段，尚无可供正常使用的正式版本。功能、API、数据模型和配置格式仍可能发生不兼容的变更，请勿将当前代码用于生产环境。
 
-[简体中文](docs/README.zh-CN.md) | [日本語](docs/README.ja.md)
+[English](../README.md) | [日本語](README.ja.md)
 
 NihongoHub 是一个用于日语词汇管理与练习的日语学习平台。
 
