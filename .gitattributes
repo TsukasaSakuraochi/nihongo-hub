@@ -1,0 +1,19 @@
+# 仓库内统一使用 LF 换行，避免 Windows / Linux 之间产生无意义的换行差异
+* text=auto eol=lf
+
+# 二进制文件：不做文本处理，也不显示文本 diff
+*.pfx binary
+*.db binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+
+# GitHub 语言统计：明确让前端文件计入
+*.html linguist-detectable=true
+
+# 第三方代码不应计入语言统计（以后把第三方库放进 web/lib/ 时生效）
+web/lib/** linguist-vendored
