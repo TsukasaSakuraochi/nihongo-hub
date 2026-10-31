@@ -12,8 +12,8 @@ namespace NihongoHub.Models.Entities
     
     public enum UserType
     {
-        user = 0,
-        admin = 1
+        User = 0,
+        Admin = 1
     }
 
     public class User

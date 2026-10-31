@@ -29,12 +29,12 @@ namespace NihongoHub.Init
             }
             _config = config;
 
-            ValidateCert();
+            ValidateCertificateFile();
         }
 
-        private static void ValidateCert()
+        private static void ValidateCertificateFile()
         {
-            if (!Current.Server.HttpsEnable)
+            if (!Current.Server.HttpsEnabled)
             {
                 return;
             }
@@ -50,7 +50,7 @@ namespace NihongoHub.Init
         }
 
         //Json读写配置
-        private static readonly JsonSerializerOptions JsonOptions = new()
+        private static readonly JsonSerializerOptions _jsonOptions = new()
         {
             WriteIndented = true,
             RespectNullableAnnotations = true,
@@ -73,7 +73,7 @@ namespace NihongoHub.Init
                 string json = File.ReadAllText(configPath);
 
 
-                var config = JsonSerializer.Deserialize<NihongoHub.Models.Config.AppConfig>(json,JsonOptions);
+                var config = JsonSerializer.Deserialize<NihongoHub.Models.Config.AppConfig>(json,_jsonOptions);
 
                 if(config == null)
                 {
@@ -110,7 +110,7 @@ namespace NihongoHub.Init
                     {
                         Host = "0.0.0.0",
                         Port = 5000,
-                        HttpsEnable = false,
+                        HttpsEnabled = false,
                         PfxPath = "",
                         PfxPassword = ""   
                     },
@@ -122,10 +122,10 @@ namespace NihongoHub.Init
                     {
                         Key = Convert.ToBase64String(System.Security.Cryptography.RandomNumberGenerator.GetBytes(64)),
                         Issuer = "NihongoHub",
-                        ExpireMinutes = 10080
+                        ExpirationMinutes = 10080
                     }
                 };
-                string json = JsonSerializer.Serialize(config,JsonOptions);
+                string json = JsonSerializer.Serialize(config,_jsonOptions);
                 File.WriteAllText(filePath,json);
                 
                 return;

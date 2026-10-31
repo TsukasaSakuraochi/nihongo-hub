@@ -2,7 +2,7 @@
 
 namespace NihongoHub.Models.Dtos.Requests
 {
-    public class ApiRequest<TData>
+    public class apirequest<TData>
     {
         public string? token {get;set;}
         public TData? data {get;set;}

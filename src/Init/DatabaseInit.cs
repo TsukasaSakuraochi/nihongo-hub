@@ -1,13 +1,20 @@
 
 namespace NihongoHub.Init
 {
-    public class DatabaseService : IDisposable
+    public class DatabaseContext : IDisposable
     {
         private readonly LiteDB.LiteDatabase _database;
 
-        public DatabaseService(string databasePath)
+        public DatabaseContext(string databasePath)
         {
-            _database = new LiteDB.LiteDatabase(databasePath);
+            // Keep existing lowercase role values when CLR enum members use PascalCase.
+            var mapper = new LiteDB.BsonMapper();
+            mapper.RegisterType<Models.Entities.UserType>(
+                role => new LiteDB.BsonValue(role.ToString().ToLowerInvariant()),
+                value => value.IsInt32
+                    ? (Models.Entities.UserType)value.AsInt32
+                    : Enum.Parse<Models.Entities.UserType>(value.AsString, ignoreCase: true));
+            _database = new LiteDB.LiteDatabase(databasePath, mapper);
         }
 
         public LiteDB.ILiteCollection<Models.Entities.User> Users
@@ -18,19 +25,19 @@ namespace NihongoHub.Init
             }
         }
 
-        public LiteDB.ILiteCollection<Models.Entities.TannGoCyou> TannGoCyou
+        public LiteDB.ILiteCollection<Models.Entities.TanngoCyou> WordBooks
         {
             get
             {
-                return _database.GetCollection<Models.Entities.TannGoCyou>("tanngocyou");
+                return _database.GetCollection<Models.Entities.TanngoCyou>("tanngocyou");
             }
         }
 
-        public LiteDB.ILiteCollection<Models.Entities.TannGo> TannGo
+        public LiteDB.ILiteCollection<Models.Entities.Tanngo> Words
         {
             get
             {
-                return _database.GetCollection<Models.Entities.TannGo>("tanngo");
+                return _database.GetCollection<Models.Entities.Tanngo>("tanngo");
             }
         }
 
@@ -42,27 +49,27 @@ namespace NihongoHub.Init
 
     public static class DatabaseInit
     {
-        private static DatabaseService? _databaseService;
+        private static DatabaseContext? _databaseContext;
 
-        public static DatabaseService Current
+        public static DatabaseContext Current
         {
             get
             {
-                if(_databaseService == null){
-                    Logging.LogReporter.Fatal("数据库未能初始化",Logging.LogCategory.DataBase);
+                if(_databaseContext == null){
+                    Logging.LogReporter.Fatal("数据库未能初始化",Logging.LogCategory.Database);
                 }
-                return _databaseService;
+                return _databaseContext;
             }
         }
 
 
         public static void Init()
         {
-            _databaseService = new DatabaseService(Path.Combine(AppContext.BaseDirectory,"Config", ConfigInit.Current.Database.FileName));
+            _databaseContext = new DatabaseContext(Path.Combine(AppContext.BaseDirectory,"Config", ConfigInit.Current.Database.FileName));
 
             ///建立唯一索引
             /// EnsureIndex(?,true)的true表示唯一索引
-            _databaseService.Users.EnsureIndex( x => x.username,true);
+            _databaseContext.Users.EnsureIndex( x => x.username,true);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace NihongoHub.Init{
         {
             var app = CreateApp();
 
-            ConfigureRoute(app);
+            ConfigureRoutes(app);
             try
             {
                 app.Run();
@@ -50,7 +50,7 @@ namespace NihongoHub.Init{
                     NihongoHub.Logging.LogReporter.Fatal("提供的Host不合法",Logging.LogCategory.Http);
                 }
 
-                if (!server.HttpsEnable)
+                if (!server.HttpsEnabled)
                 {
                     options.Listen(address,server.Port);
                     return;
@@ -68,7 +68,7 @@ namespace NihongoHub.Init{
             }
         }
 
-        private static void ConfigureRoute(WebApplication app)
+        private static void ConfigureRoutes(WebApplication app)
         {
             app.UseDefaultFiles();
             app.UseStaticFiles();

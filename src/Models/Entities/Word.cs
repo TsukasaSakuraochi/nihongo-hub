@@ -9,7 +9,7 @@ namespace NihongoHub.Models.Entities
     /// 但单词必须有一个所属的单词本，应该将每一个单词都包含在"默认单词本"中
     /// </summary>
     
-    public class TannGo
+    public class Tanngo
     {
         [BsonId]
         public int id {get;set;} //单词全局id
@@ -28,14 +28,15 @@ namespace NihongoHub.Models.Entities
     /// tags 属于单词本(如 "N2"),单词本身没有 tag
     /// </summary>
 
-    public class TannGoCyou
+    public class TanngoCyou
     {
         [BsonId]
         public int id {set;get;}
         public required int userid {set;get;}
         public required string name {get;set;}
         public string? note {get;set;} //表示用户的标记
-        public required List<int> tangoidlist {get;set;} //表示包含单词的id
+        [BsonField("tangoidlist")]
+        public required List<int> wordids {get;set;} //表示包含单词的id
         public required List<string> tags {get;set;} //供前端使用的tag
         public required DateTime createdat {get;set;} //UTC
         public required DateTime updatedat {get;set;} //UTC

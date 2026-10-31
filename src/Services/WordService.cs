@@ -1,6 +1,6 @@
 namespace NihongoHub.Services
 {
-    public static class TanngoService
+    public static class WordService
     {
         
     }

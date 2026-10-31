@@ -6,14 +6,14 @@ namespace NihongoHub.Models.Dtos.Responses
     /// 
     /// 这里定义的Word可供其他返回api使用
     
-    public class WordBookReferenceResponse
+    public class wordbookreferenceresponse
     {
         public required int id {get;set;}
         public required string name {get;set;}
         public required List<string> tags {get;set;}
     }
     
-    public class WordResponse
+    public class wordresponse
     {
         public required int id {get;set;}
         public string? kannji {get;set;} //可空
@@ -21,15 +21,15 @@ namespace NihongoHub.Models.Dtos.Responses
         public int? akusennto {get;set;}
         public required string meaning {get;set;}
         public string? note {get;set;}
-        public List<WordBookReferenceResponse>? tanngoCyoulist {get;set;} //表示包含该单词的单词本
+        public List<wordbookreferenceresponse>? wordbooks {get;set;} //表示包含该单词的单词本
         public required DateTime createdat {get;set;} //UTC
         public required DateTime updatedat {get;set;} //UTC
     }
-    public class WordBookWordsResponseData
+    public class wordsresponsedata
     {
-        public required List<WordResponse> words {get;set;}
+        public required List<wordresponse> words {get;set;}
     }
-    public class WordBookWordsResponse : ApiResponses<WordBookWordsResponseData>;
+    public class wordbookwordsresponse : apiresponse<wordsresponsedata>;
 
-    public class SearchWordsResponse : ApiResponses<WordBookWordsResponseData>;
+    public class searchwordsresponse : apiresponse<wordsresponsedata>;
 }
