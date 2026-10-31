@@ -13,5 +13,5 @@ namespace NihongoHub.Models.Dtos.Responses
         public required DateTime updatedat {get;set;}
     }
 
-    public class WordBookSummaryResponse : ApiResponses<WordBookSummaryResponseData>;
+    public class WordBookSummaryResponse : ApiResponse<WordBookSummaryResponseData>;
 }

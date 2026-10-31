@@ -7,7 +7,7 @@ namespace NihongoHub.Init{
         {
             var app = CreateApp();
 
-            ConfigureRoute(app);
+            ConfigureRoutes(app);
             try
             {
                 app.Run();
@@ -68,7 +68,7 @@ namespace NihongoHub.Init{
             }
         }
 
-        private static void ConfigureRoute(WebApplication app)
+        private static void ConfigureRoutes(WebApplication app)
         {
             app.UseDefaultFiles();
             app.UseStaticFiles();

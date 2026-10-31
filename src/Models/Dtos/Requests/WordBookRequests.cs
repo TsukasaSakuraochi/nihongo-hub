@@ -2,9 +2,9 @@
 
 namespace NihongoHub.Models.Dtos.Requests
 {
-    public class TanngoCyouWordsRequestData
+    public class WordBookWordsRequestData
     {
-        public required int tanngoCyouid {get;set;}
+        public required int wordbookid {get;set;}
     }
-    public class TanngoCyouWordsRequest : ApiRequest<TanngoCyouWordsRequestData>;
+    public class WordBookWordsRequest : ApiRequest<WordBookWordsRequestData>;
 }

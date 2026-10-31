@@ -9,14 +9,14 @@ namespace NihongoHub.Services
     /// </summary>
     public class TokenUserData
     {
-        public required int userid {get;set;}
-        public required string username {set;get;}
-        public required Models.Entities.UserType role {get;set;}
+        public required int UserId {get;set;}
+        public required string Username {set;get;}
+        public required Models.Entities.UserType Role {get;set;}
     }
 
     public static class TokenService
     {
-        public static void GenerateToken(TokenUserData userdata,out string token,out DateTime expiresAt)
+        public static void GenerateToken(TokenUserData userData,out string token,out DateTime expiresAt)
         {
             ///后续有计划加入关于用户Ip的部分
         
@@ -38,9 +38,9 @@ namespace NihongoHub.Services
             //设置 JWT Claims
             List<Claim> claims = new()
             {
-                new Claim(JwtRegisteredClaimNames.Sub,userdata.userid.ToString()),
-                new Claim(JwtRegisteredClaimNames.UniqueName,userdata.username),
-                new Claim("role",userdata.role.ToString()),
+                new Claim(JwtRegisteredClaimNames.Sub,userData.UserId.ToString()),
+                new Claim(JwtRegisteredClaimNames.UniqueName,userData.Username),
+                new Claim("role",userData.Role.ToString()),
                 new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString())
             };
 

@@ -21,15 +21,15 @@ namespace NihongoHub.Models.Dtos.Responses
         public int? akusennto {get;set;}
         public required string meaning {get;set;}
         public string? note {get;set;}
-        public List<WordBookReferenceResponse>? tanngoCyoulist {get;set;} //表示包含该单词的单词本
+        public List<WordBookReferenceResponse>? wordbooks {get;set;} //表示包含该单词的单词本
         public required DateTime createdat {get;set;} //UTC
         public required DateTime updatedat {get;set;} //UTC
     }
-    public class WordBookWordsResponseData
+    public class WordsResponseData
     {
         public required List<WordResponse> words {get;set;}
     }
-    public class WordBookWordsResponse : ApiResponses<WordBookWordsResponseData>;
+    public class WordBookWordsResponse : ApiResponse<WordsResponseData>;
 
-    public class SearchWordsResponse : ApiResponses<WordBookWordsResponseData>;
+    public class SearchWordsResponse : ApiResponse<WordsResponseData>;
 }

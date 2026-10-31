@@ -9,5 +9,5 @@ namespace NihongoHub.Models.Dtos.Responses
         public required string usertype {get;set;}
         public required DateTime expiresat {get;set;}
     }
-    public class LoginResponse : ApiResponses<LoginResponseData>;
+    public class LoginResponse : ApiResponse<LoginResponseData>;
 }
