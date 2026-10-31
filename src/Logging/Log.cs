@@ -7,7 +7,7 @@ namespace NihongoHub.Logging
     {
         Json,       //JSON序列、反序列时遇到的问题
         File,       //文件相关
-        DataBase,   //数据库异常
+        Database,   //数据库异常
         Http,       //HTTP相关错误
         Unknown,    //泛指一切未收录的异常
         None        //不标注类别(普通业务日志)
