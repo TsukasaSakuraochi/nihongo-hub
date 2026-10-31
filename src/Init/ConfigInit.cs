@@ -34,7 +34,7 @@ namespace NihongoHub.Init
 
         private static void ValidateCertificateFile()
         {
-            if (!Current.Server.HttpsEnabled)
+            if (!Current.Server.HttpsEnable)
             {
                 return;
             }
@@ -110,7 +110,7 @@ namespace NihongoHub.Init
                     {
                         Host = "0.0.0.0",
                         Port = 5000,
-                        HttpsEnabled = false,
+                        HttpsEnable = false,
                         PfxPath = "",
                         PfxPassword = ""   
                     },
@@ -122,7 +122,7 @@ namespace NihongoHub.Init
                     {
                         Key = Convert.ToBase64String(System.Security.Cryptography.RandomNumberGenerator.GetBytes(64)),
                         Issuer = "NihongoHub",
-                        ExpirationMinutes = 10080
+                        ExpireMinutes = 10080
                     }
                 };
                 string json = JsonSerializer.Serialize(config,_jsonOptions);

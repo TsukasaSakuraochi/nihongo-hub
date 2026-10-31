@@ -24,7 +24,7 @@ namespace NihongoHub.Services
 
             //计算签发时间和过期时间
             DateTime validFrom = DateTime.UtcNow;
-            expiresAt = validFrom.AddMinutes(jwtConfig.ExpirationMinutes);
+            expiresAt = validFrom.AddMinutes(jwtConfig.ExpireMinutes);
 
             //从 Base64 还原签名密钥
             byte[] keyBytes = Convert.FromBase64String(jwtConfig.Key);
@@ -40,7 +40,7 @@ namespace NihongoHub.Services
             {
                 new Claim(JwtRegisteredClaimNames.Sub,userData.UserId.ToString()),
                 new Claim(JwtRegisteredClaimNames.UniqueName,userData.Username),
-                new Claim("role",userData.Role.ToString().ToLowerInvariant()),
+                new Claim("role",userData.Role.ToString()),
                 new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString())
             };
 

@@ -4,16 +4,16 @@ namespace NihongoHub.Data
 {
     public static class WordBookRepository
     {
-        public static Models.Entities.TanngoCyou? FindWordBookById(int id)
+        public static Models.Entities.WordBook? FindWordBookById(int id)
         {
             return Init.DatabaseInit.Current.WordBooks.FindById(id);
         }
-        public static List<Models.Entities.TanngoCyou> FindWordBooksByUserId(int userId)
+        public static List<Models.Entities.WordBook> FindWordBooksByUserId(int userId)
         {
             return Init.DatabaseInit.Current.WordBooks.Find(x => x.userid == userId).ToList();
         }
 
-        public static bool Insert(Models.Entities.TanngoCyou wordBook,ref string errorMessage,ref Logging.LogCategory errorCategory)
+        public static bool Insert(Models.Entities.WordBook wordBook,ref string errorMessage,ref Logging.LogCategory errorCategory)
         {
             errorMessage = "";
 
@@ -39,7 +39,7 @@ namespace NihongoHub.Data
             }
             return true;
         }
-        public static bool Update(Models.Entities.TanngoCyou wordBook,ref string errorMessage,ref Logging.LogCategory errorCategory)
+        public static bool Update(Models.Entities.WordBook wordBook,ref string errorMessage,ref Logging.LogCategory errorCategory)
         {
             errorMessage = "";
 

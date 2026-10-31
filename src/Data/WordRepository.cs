@@ -4,15 +4,15 @@ namespace NihongoHub.Data
 {
     public static class WordRepository
     {
-        public static Models.Entities.Tanngo? FindWordById(int id)
+        public static Models.Entities.Word? FindWordById(int id)
         {
             return Init.DatabaseInit.Current.Words.FindById(id);
         }
-        public static List<Models.Entities.Tanngo> FindWordsByIds(List<int> ids, List<int> missingIds)
+        public static List<Models.Entities.Word> FindWordsByIds(List<int> ids, List<int> missingIds)
         {
             missingIds.Clear();
 
-            List<Models.Entities.Tanngo> wordList = new();
+            List<Models.Entities.Word> wordList = new();
 
             foreach (int id in ids)
             {
@@ -28,7 +28,7 @@ namespace NihongoHub.Data
             return wordList;
         }
 
-        public static bool Insert(Models.Entities.Tanngo word,ref string errorMessage,ref Logging.LogCategory errorCategory)
+        public static bool Insert(Models.Entities.Word word,ref string errorMessage,ref Logging.LogCategory errorCategory)
         {
             errorMessage = "";
 
@@ -54,7 +54,7 @@ namespace NihongoHub.Data
             }
             return true;
         }
-        public static bool Update(Models.Entities.Tanngo word,ref string errorMessage,ref Logging.LogCategory errorCategory)
+        public static bool Update(Models.Entities.Word word,ref string errorMessage,ref Logging.LogCategory errorCategory)
         {
             errorMessage = "";
             try

@@ -2,12 +2,12 @@
 
 namespace NihongoHub.Models.Dtos.Responses
 {
-    public class loginresponsedata
+    public class LoginResponseData
     {
         public required string token {get;set;}
         public required int userid {get;set;}
         public required string usertype {get;set;}
         public required DateTime expiresat {get;set;}
     }
-    public class loginresponse : apiresponse<loginresponsedata>;
+    public class LoginResponse : ApiResponse<LoginResponseData>;
 }

@@ -2,7 +2,7 @@
 
 namespace NihongoHub.Models.Dtos.Responses
 {
-    public class apiresponse<TData>
+    public class ApiResponse<TData>
     {
         public required bool success {get;set;}
         public required int code {get;set;} 

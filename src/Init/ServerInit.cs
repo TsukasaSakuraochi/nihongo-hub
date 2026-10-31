@@ -50,7 +50,7 @@ namespace NihongoHub.Init{
                     NihongoHub.Logging.LogReporter.Fatal("提供的Host不合法",Logging.LogCategory.Http);
                 }
 
-                if (!server.HttpsEnabled)
+                if (!server.HttpsEnable)
                 {
                     options.Listen(address,server.Port);
                     return;

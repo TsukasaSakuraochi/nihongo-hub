@@ -7,14 +7,7 @@ namespace NihongoHub.Init
 
         public DatabaseContext(string databasePath)
         {
-            // Keep existing lowercase role values when CLR enum members use PascalCase.
-            var mapper = new LiteDB.BsonMapper();
-            mapper.RegisterType<Models.Entities.UserType>(
-                role => new LiteDB.BsonValue(role.ToString().ToLowerInvariant()),
-                value => value.IsInt32
-                    ? (Models.Entities.UserType)value.AsInt32
-                    : Enum.Parse<Models.Entities.UserType>(value.AsString, ignoreCase: true));
-            _database = new LiteDB.LiteDatabase(databasePath, mapper);
+            _database = new LiteDB.LiteDatabase(databasePath);
         }
 
         public LiteDB.ILiteCollection<Models.Entities.User> Users
@@ -25,19 +18,19 @@ namespace NihongoHub.Init
             }
         }
 
-        public LiteDB.ILiteCollection<Models.Entities.TanngoCyou> WordBooks
+        public LiteDB.ILiteCollection<Models.Entities.WordBook> WordBooks
         {
             get
             {
-                return _database.GetCollection<Models.Entities.TanngoCyou>("tanngocyou");
+                return _database.GetCollection<Models.Entities.WordBook>("tanngocyou");
             }
         }
 
-        public LiteDB.ILiteCollection<Models.Entities.Tanngo> Words
+        public LiteDB.ILiteCollection<Models.Entities.Word> Words
         {
             get
             {
-                return _database.GetCollection<Models.Entities.Tanngo>("tanngo");
+                return _database.GetCollection<Models.Entities.Word>("tanngo");
             }
         }
 
